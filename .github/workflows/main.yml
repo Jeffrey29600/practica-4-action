@@ -1,0 +1,22 @@
+name: Practica 4 - GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hola-mundo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Ejecutar Hola Mundo
+        run: node hola.js
+
+      - name: Enviar notificacion
+        run: |
+          curl -d "Practica 4: Hola Mundo ejecutado correctamente" \
+            https://ntfy.sh/devops-itla
